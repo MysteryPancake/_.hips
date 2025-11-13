@@ -40,6 +40,12 @@ You can sorta render a sunset using a uniform volume on a sphere as big as the e
 <img width="1985" height="857" alt="Ls_KarmaSunset_v01" src="https://github.com/user-attachments/assets/34b49392-95c7-40c3-aed7-08908b59b9fe" />
 
 
+#### [Ls_Cop3LUTfromImage_v02](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_Cop3LUTfromImage_v02)
+There's no way to apply a 3D LUT in new-style COPs apart from the OCIO node (which is CPU-only), but if you encode one in an image you can do a reasonable job with OpenCL:
+
+<img width="1920" height="1080" alt="Ls_Cop3LUTfromImage_v01" src="https://github.com/user-attachments/assets/5df6ecc2-5160-4cb2-946d-09308966cc55" />
+
+
 #### [Ls_MatrixFromChart_v01b.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_MatrixFromChart_v01b.hipnc)
 Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColorTarget using everyone's favourite, the Linear Solver SOP:
 
