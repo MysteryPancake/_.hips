@@ -11,13 +11,13 @@ https://github.com/user-attachments/assets/ead2cc2e-e160-45a9-83da-68dfa6ef0727
 
 
 #### [Ls_Cop3AtomicAdd.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_Cop3AtomicAdd.hipnc)
-Using OpenCL global atomic add tricks to render a buffer of point positions as single pixel particles extremely quickly, a bit like pointrender or krakatoa:
+Using OpenCL global atomic add tricks to render a buffer of point positions as single pixel particles super fast, a bit like Krakatoa or higx point render:
 
 https://github.com/user-attachments/assets/30609454-98d0-46a3-883d-81831ba6363e
 
 
 #### [Ls_Cop3PrefixsumGlow.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_Cop3PrefixsumGlow.hipnc)
-The Prefix Sum COP makes summed area tables that let you do box filters of any size pretty much instantly, so you can add up tons of them super fast to approximate the non-separable kernels of exponential or fibonacci glows (which look uncomfortably like having smudged glasses if you get the shape just right):
+The Prefix Sum COP makes summed area tables that let you do box filters of any size pretty much instantly, so you can add up tons of them to approximate the non-separable kernels of exponential or fibonacci glows (which look uncomfortably like having smudged glasses if you get the shape just right):
 
 <img width="2560" height="1600" alt="Ls_Cop3PrefixsumGlow" src="https://github.com/user-attachments/assets/495ac1de-7cc3-4653-bac4-3b99bbbf24ef" />
 
@@ -35,7 +35,7 @@ Probably the best we can do in 21.0 to render PNGs from Karma with an OCIO view 
 
 
 #### [Ls_KarmaSunset_v01](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_KarmaSunset_v01)
-You can kind of render a sunset using a uniform volume on a sphere as big as the entire earth with a real geo-referenced DEM terrain displacement map:
+You can sorta render a sunset using a uniform volume on a sphere as big as the entire earth with a geo-referenced DEM terrain, letting the atmosphere both scatter and absorb the same colour so the sky gradient from the low-angle sun appears naturally:
 
 <img width="1985" height="857" alt="Ls_KarmaSunset_v01" src="https://github.com/user-attachments/assets/34b49392-95c7-40c3-aed7-08908b59b9fe" />
 
