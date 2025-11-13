@@ -1,14 +1,49 @@
+#### [Ls_ApexLol_v01.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_ApexLol_v01.hipnc)
+APEX node graphs are stored as geometry so you can do silly things like move the nodes themselves around with attribnoise:
+
+https://github.com/user-attachments/assets/598374e9-640f-4ea8-b978-7f94de4b3d33
+
+ 
 #### [Ls_ColourBooper_v01.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_ColourBooper_v01.hipnc)
-Semi-serious try at 3D colour correction with 5 from/to pickers using RBFs to stay smooth, kinda similar to the mesh-like colour warping in Baselight/Flame/Resolve:
+Semi-serious try at 3D colour correction with 5 from/to pickers using radial basis functions to stay smooth, kinda similar to the mesh-like colour warping in Baselight/Flame/Resolve:
 
 https://github.com/user-attachments/assets/ead2cc2e-e160-45a9-83da-68dfa6ef0727
 
 
+#### [Ls_Cop3AtomicAdd.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_Cop3AtomicAdd.hipnc)
+Using OpenCL global atomic add tricks to render a buffer of point positions as single pixel particles extremely quickly, a bit like pointrender or krakatoa:
+
+https://github.com/user-attachments/assets/30609454-98d0-46a3-883d-81831ba6363e
+
+
+#### [Ls_KarmaPNGslapcompACES_v01.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_KarmaPNGslapcompACES_v01.hipnc)
+Probably the best we can do in 21.0 to render PNGs from Karma with an OCIO view transform baked in, by applying it with a slapcomp block and passing `--ocio 0` to husk so it doesn't do another transform... it matches rendering an EXR and applying the view transform afterwards in COPs:
+
+<img width="2559" height="1320" alt="Ls_KarmaPNGslapcompACES_v01" src="https://github.com/user-attachments/assets/c23c8a5b-a734-488d-ae2d-15baaaa40658" />
+
+
+#### [Ls_KarmaSunset_v01](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_KarmaSunset_v01)
+You can kind of render a sunset using a uniform volume on a sphere as big as the entire earth with a real geo-referenced DEM terrain displacement map:
+
+<img width="1985" height="857" alt="Ls_KarmaSunset_v01" src="https://github.com/user-attachments/assets/34b49392-95c7-40c3-aed7-08908b59b9fe" />
+
+
+#### [Ls_MatrixFromChart_v01b.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_MatrixFromChart_v01b.hipnc)
+Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColorTarget using everyone's favourite, the Linear Solver SOP:
+
+<img width="2560" height="1487" alt="Ls_MatrixFromChart_v01" src="https://github.com/user-attachments/assets/1a30e0f6-d35c-478f-86aa-d5a005937645" />
+
+
+#### [Ls_RotationWalksHome_v03.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_RotationWalksHome_v03.hipnc)
+Visualizing the main result of https://arxiv.org/abs/2502.14367v3 by showing rotation vectors in SO(3) for 50 walks as their angle scales increase over time, both on the left walking once (which never returns to the origin) and on the right the same walk repeated twice (which returns to the origin many times):
+
+https://github.com/user-attachments/assets/3f226109-32f6-4381-84f9-b048bd06978c
+
+
 #### [Ls_Squish_v01.hipnc](https://github.com/lcrs/_.hips/raw/refs/heads/main/Ls_Squish_v01.hipnc)
-Cheap trick to makes meshes squish away from each other when in contact without any simulation:
+Cheap trick to make meshes squish away from each other when in contact without any simulation:
 
 https://github.com/user-attachments/assets/084022c2-775c-4e59-994a-e58003d28d1f
-
 
 
 Everything else in here I have zero memory of don't @ me 🤍 lewis.saunders@gmail.com
