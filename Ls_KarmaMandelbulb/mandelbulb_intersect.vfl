@@ -1,0 +1,155 @@
+/*%vcc -l intersect.otl -O vop % */
+
+#include "math.h"
+
+// Distance estimator adapted from Mikael Hvidtfeldt's blog:
+// http://blog.hvidtfeldts.net/index.php/2011/09/distance-estimated-3d-fractals-v-the-mandelbulb-different-de-approximations/~]
+float
+DE(vector pos; float power; int iters; float bail; float phi_off; float theta_off)
+{
+   vector z = pos;
+   float dr = 1.0;
+   float r = 0.0;
+   float theta, phi, r_pow;
+   float sin_theta, cos_theta, sin_phi, cos_phi;
+   for (int i = 0; i < iters; ++i)
+   {
+       r = length(z);
+       if (r > bail)
+           break;
+       // convert to polar coords
+       theta = acos(z.y/r) + theta_off;
+       phi = atan2(z.z, z.x) + phi_off;
+       // calcuate scalar derivative approximation
+       r_pow = pow(r, power-1.0);
+       dr = r_pow*power*dr + 1.0;
+       // scale and rotate point
+       r_pow *= r;
+       theta *= power;
+       phi   *= power;
+       // convert back to cartesian coords
+       sin_theta = sin(theta);
+       cos_theta = cos(theta);
+       sin_phi = sin(phi);
+       cos_phi = cos(phi);
+       z = r_pow * set(sin_theta*cos_phi,
+                       cos_theta,
+                       sin_theta*sin_phi);
+       z += pos;
+   }
+   return 0.5*log(r)*r/dr;
+}
+
+vector
+estimateNormal(vector pos; float power; int iters; float bail; float phi; float theta)
+{
+    float eps = 2e-6f;
+    float n = DE(pos, power, iters, bail, phi, theta);
+    float dx = DE(pos + set(eps, 0, 0), power, iters, bail, phi, theta);
+    float dy = DE(pos + set(0, eps, 0), power, iters, bail, phi, theta);
+    float dz = DE(pos + set(0, 0, eps), power, iters, bail, phi, theta);
+    vector grad = set(dx, dy, dz) - n;
+    return normalize(grad);
+}
+
+// intersect sphere
+int
+intersectSphere(vector ray_org; vector ray_dir; float radius; export float dist)
+{
+    int hit = 0;
+    float b = 2*dot(ray_org, ray_dir);
+    float c = length2(ray_org) - radius*radius;
+    float d = b*b - 4.0f*c;
+    // check discriminant for hit
+    if (d > 0)
+    {
+        d = sqrt(d);
+        float dist0 = 0.5f * (-b - d);
+        float dist1 = 0.5f * (-b + d);
+        if (dist0 > 0 && dist0 < dist1)
+        {
+            hit = 1;
+            dist = dist0;
+        }
+        else if (dist1 > 0)
+        {
+            hit = 1;
+            dist = dist1;
+        }
+    }
+    return hit;
+}
+
+cvex
+main(
+    // Inputs
+    vector ray_org = 0; // ray origin given by procedural
+    vector ray_dir = 0; // ray direction given by procedural
+    // Parameters
+    int   iters      = 6;
+    int   max_steps  = 100;
+    float eps        = 2e-6f;
+    float power      = 8;
+    float bailout    = 15;
+    float size       = 1;
+    float phi        = 0.0f;
+    float theta      = 0.0f;
+    // Intersection outputs
+    export float   distance = 0; // distance to hit
+    export vector  Ng       = 0; // normal at hit
+    export vector  uvw      = 0; // uvw
+    export int     prim_id  = 0; // primitive id
+    export int     hit      = 0; // boolean determining whether there was a hit
+    // Attributes
+    export vector displayColor = { 0, 0, 0 };
+    )
+{
+    float t = 0.0f;
+    // this scales everything down to the unit cube
+    vector pos = ray_org/size;
+    // intersect with bounding sphere
+    hit = intersectSphere(pos, ray_dir, 2.0f, t);
+    pos += t * ray_dir;
+    distance = t;
+    // steps
+    float steps = 0;
+    // bounds
+    float xsign = -sign(pos.x);
+    float ysign = -sign(pos.y);
+    float zsign = -sign(pos.z);
+    distance = 0;
+    // hit bounding sphere
+    if (hit)
+    {
+        hit = 1;
+        // ray march using the distance estimator
+        for (steps = 0; steps < max_steps; ++steps)
+        {
+            t = DE(pos, power, iters, bailout, phi, theta);
+            distance += t;
+            pos += t * ray_dir;
+            if (t < eps)
+            {
+                uvw.y = t;
+                break;
+            }
+            // check if we left the bounding box (sign accounts for original direction)
+            if (xsign*pos.x < -2 ||
+                ysign*pos.y < -2 ||
+                zsign*pos.z < -2)
+            {
+                hit = 0;
+                break;
+            }
+        }
+    }
+
+    if (hit)
+    {
+        Ng = estimateNormal(pos, power, iters, bailout, phi, theta);
+        uvw.x = fit(steps, 0, max_steps, 0, 1);
+
+        // simple AA shading estimate
+        displayColor = set(uvw.x);
+    }
+}

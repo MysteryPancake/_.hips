@@ -1,0 +1,15 @@
+/*%vcc -l bbox.otl -O vop % */
+
+cvex
+main(
+    // Parameters
+    float  size  = 1;
+    // Outputs
+    export vector  bbox_max = 0;
+    export vector  bbox_min = 0;
+    )
+{
+    // set bounding box
+    bbox_max = set(2*size);
+    bbox_min = set(-2*size);
+}
