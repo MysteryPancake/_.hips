@@ -86,7 +86,7 @@ Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColo
 <img width="2560" height="1487" alt="Ls_MatrixFromChart_v01" src="https://github.com/user-attachments/assets/1a30e0f6-d35c-478f-86aa-d5a005937645" />
 
 #### [Ls_MotionVectors_v01.hip](./Ls_MotionVectors_v01.hip)
-Inline code snippet to output 2D motion vectors in absolute pixels, for 2D vector blur in comp. Works on both geometry and volumes (seen in Ls_VolumeMotionVectors_v01.hipnc):
+Inline code snippet to output 2D motion vectors in absolute pixels, for 2D vector blur in comp. Works on both geometry and volumes, as seen in [Ls_VolumeMotionVectors](#Ls_VolumeMotionVectors_v01.hipnc):
 
 <img width="1919" height="919" alt="Ls_MotionVectors_v01" src="https://github.com/user-attachments/assets/c6c31036-6acf-4e69-85d5-89653d9a7e79" />
 
@@ -149,6 +149,11 @@ https://github.com/user-attachments/assets/445e0c6c-a4eb-4907-9ef0-1cb60870c3ee
 Demo of a strange viewport bug. The capy and camera are in sync when hitting play, but when scrubbing the timeline he's all over the shop:
 
 https://github.com/user-attachments/assets/18be003d-dcb7-4d79-834d-a9c52088a267
+
+#### [Ls_VolumeMotionVectors_v01.hipnc](./Ls_VolumeMotionVectors_v01.hipnc)
+Inline code snippet to output 2D motion vectors in absolute pixels, as seen in [Ls_MotionVectors](#Ls_MotionVectors_v01.hip). Motion vectors for volumes are tricky because of transparency. A wispy bit of smoke moving fast will get motion vectors near 0 because it's not opaque enough for its true velocity colour to show. One solution is increasing the density so you only see the vel at the front of the volume:
+
+<img width="1919" height="916" alt="Ls_VolumeMotionVectors_v01" src="https://github.com/user-attachments/assets/f93329e8-ca8f-47a6-a1fb-d29a291784e9" />
 
 Everything else in here I have zero memory of don't @ me 🤍 lewis.saunders@gmail.com
 
