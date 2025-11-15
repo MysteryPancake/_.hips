@@ -35,6 +35,11 @@ The Prefix Sum COP makes summed area tables that let you do box filters of any s
 
 <img width="2560" height="1600" alt="Ls_Cop3PrefixsumGlow" src="https://github.com/user-attachments/assets/495ac1de-7cc3-4653-bac4-3b99bbbf24ef" />
 
+#### [Ls_Cop3Tile_v01.hipnc](./Ls_Cop3Tile_v01.hipnc)
+The Smooth Fill COP can be used for seamless edge blending, useful for tiled textures:
+
+<img width="1918" height="916" alt="Ls_Cop3Tile_v01" src="https://github.com/user-attachments/assets/c5c2381f-b26a-464f-abcb-70ab86c89f56" />
+
 #### [Ls_KarmaMandelbulb](./Ls_KarmaMandelbulb)
 The HDK comes with a Karma procedural that renders a mandelbulb in VEX without having to create any geometry (sadly it crashes as soon as you change any of the parameters in 20.5.361 unless you switch the renderer from Karma CPU to something else and then back again):
 
