@@ -90,6 +90,11 @@ Pruning primitives outside of an SDF VDB in LOPs. Sample your SOP VDB at the cen
 
 <img width="2672" height="1629" alt="Ls_LOPsFrustrumClipMaybe_v01" src="https://github.com/user-attachments/assets/51e6005d-0eb4-4277-b875-925b3015c006" />
 
+#### [Ls_MantraShadowMask_v01.hipnc](./Ls_MantraShadowMask_v01.hipnc)
+Making a shadow map by grabbing the direct shadow AOV from the PBR Lighting VOP, then slipping it into a multiply of Ce before adding to the main lighting result. This way you get a soft shadow mask even from texture displacement:
+
+<img width="2219" height="993" alt="Ls_MantraShadowMask_v01" src="https://github.com/user-attachments/assets/0b986631-177a-4b66-b46c-62414e4201fa" />
+
 #### [Ls_MatrixFromChart_v01b.hipnc](./Ls_MatrixFromChart_v01b.hipnc)
 Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColorTarget using everyone's favourite, the Linear Solver SOP:
 
