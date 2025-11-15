@@ -5,6 +5,11 @@ APEX node graphs are stored as geometry so you can do silly things like move the
 
 https://github.com/user-attachments/assets/598374e9-640f-4ea8-b978-7f94de4b3d33
 
+#### [Ls_BlendshapeAlongSurface.hipnc](./Ls_BlendshapeAlongSurface.hipnc)
+Using the vague concept of a "volumetric tangent space" for blendshaping so it doesn't move linearly, but follows the surface of the sphere to get to its final point (left is normal linear blendshape with obvious intersection and volume problems):
+
+https://github.com/user-attachments/assets/3daf9345-0d87-436f-a49a-33efca1fd062
+
 #### [Ls_ColourBooper_v01.hipnc](./Ls_ColourBooper_v01.hipnc)
 Semi-serious try at 3D colour correction with 5 from/to pickers using radial basis functions to stay smooth, kinda similar to the mesh-like colour warping in Baselight/Flame/Resolve:
 
