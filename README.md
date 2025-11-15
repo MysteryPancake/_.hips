@@ -85,6 +85,36 @@ Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColo
 
 <img width="2560" height="1487" alt="Ls_MatrixFromChart_v01" src="https://github.com/user-attachments/assets/1a30e0f6-d35c-478f-86aa-d5a005937645" />
 
+#### [Ls_MotionVectors_v01.hip](./Ls_MotionVectors_v01.hip)
+Inline code snippet to output 2D motion vectors in absolute pixels, for 2D vector blur in comp. Works on both geometry and volumes (seen in Ls_VolumeMotionVectors_v01.hipnc):
+
+<img width="1919" height="919" alt="Ls_MotionVectors_v01" src="https://github.com/user-attachments/assets/c6c31036-6acf-4e69-85d5-89653d9a7e79" />
+
+```c
+// 2D motion vector output in absolute pixels, lewis@lewissaunders.com July 2018
+// Paste this in an Inline Code VOP, enable "Expand Expressions in Code"
+// Connect a Bind set to "vel", type Vector, to the first input
+// Set Output 1 Name to "mv", type Vector
+// Connect the output to a Bind Export set to the name used in Mantra's image planes
+// Make sure motion blur is enabled on the ROP, even if "Allow Image Motion Blur" is not
+vector ndcv = toNDC(getblurP(1.0)) - toNDC(getblurP(0.0));
+string engine; renderstate("renderer:renderengine", engine);
+if((engine == "raytrace" || engine == "pbrraytrace") && isbound("vel")) {
+    // When rendering volumes in raytrace mode the getblurP() method doesn't work, but we do the best we can
+    // It's correct for a static camera but there's no way to incorporate camera motion. For simple camera moves
+    // the camera motion vectors can be added to this in comp before the blur is done... to get solid vectors
+    // from a volume the density normally needs to be increased a lot anyway, and rendered as another pass, so
+    // it might be better to just do that pass in micropoly mode :)
+    vector p0 = getblurP(0.0);
+    vector framev = vel / $FPS;
+    vector camerav = vtransform("space:object", "space:camera", framev);
+    ndcv = toNDC(p0 + camerav) - toNDC(p0);
+}
+vector res; renderstate("image:resolution", res);
+ndcv *= set(res.x, res.y, 0.0);
+\$mv = ndcv;
+```
+
 #### [Ls_Ramprefine_v01.hiplc](./Ls_Ramprefine_v01.hiplc)
 Simplifying colour ramps that have way too many points by treating them as 3D paths in RGB space:
 
