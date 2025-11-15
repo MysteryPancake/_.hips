@@ -86,7 +86,7 @@ Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColo
 <img width="2560" height="1487" alt="Ls_MatrixFromChart_v01" src="https://github.com/user-attachments/assets/1a30e0f6-d35c-478f-86aa-d5a005937645" />
 
 #### [Ls_MotionVectors_v01.hip](./Ls_MotionVectors_v01.hip)
-Inline code snippet to output 2D motion vectors in absolute pixels, for 2D vector blur in comp. Works on both geometry and volumes, as seen in [Ls_VolumeMotionVectors](#ls_volumemotionvectors_v01hipnc):
+Inline code snippet to output 2D motion vectors in absolute pixels, for 2D vector blur in comp. Works on both geometry and volumes, as seen in [Ls_VolumeMotionVectors](#ls_volumemotionvectors_v01hipnc--ls_volumemotionvectorsnodes_v01hipnc):
 
 <img width="1919" height="919" alt="Ls_MotionVectors_v01" src="https://github.com/user-attachments/assets/c6c31036-6acf-4e69-85d5-89653d9a7e79" />
 
