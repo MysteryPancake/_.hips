@@ -10,6 +10,11 @@ Using the vague concept of a "volumetric tangent space" for blendshaping so it d
 
 https://github.com/user-attachments/assets/3daf9345-0d87-436f-a49a-33efca1fd062
 
+#### [Ls_Caustics_v01.hiplc](./Ls_Caustics_v01.hiplc)
+Caustics are fun to play with in mantra, just set photon target on a caustic light to the transparent object and add a zero to the default photon count. Then constantly hit render in the IPR to update the map:
+
+<img width="1293" height="717" alt="Ls_Caustics_v01" src="https://github.com/user-attachments/assets/9d99f77c-3bf9-4ee0-831d-fdb37678a0c5" />
+
 #### [Ls_ColourBooper_v01.hipnc](./Ls_ColourBooper_v01.hipnc)
 Semi-serious try at 3D colour correction with 5 from/to pickers using radial basis functions to stay smooth, kinda similar to the mesh-like colour warping in Baselight/Flame/Resolve:
 
