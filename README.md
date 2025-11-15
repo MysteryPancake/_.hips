@@ -165,7 +165,7 @@ Interpolating between two matrix attributes using `slerp()`:
 <img width="1919" height="919" alt="Ls_MatrixInterp_v01" src="https://github.com/user-attachments/assets/e44d1f4b-f240-4d20-8ebe-d88a2ff799f8" />
 
 #### [Ls_PackedGeoRayCull.hipnc](./Ls_PackedGeoRayCull.hipnc)
-Culls packed prims based on the Ray SOP. The sphere rays out in every direction, records hitprim from the packed geo, then `findattribvalcount()` checks if each piece of packed geo had a hit recorded:
+Culls packed prims using visibility rays - it may seem surprising that the Ray SOP can trace against packed prims since most SOPs only treat them as a single point but thinking of them as render time instances hints that it should work... the rays record hitprim from the packed geo, then `findattribvalcount()` checks if each piece of packed geo had a hit recorded:
 
 <img width="2560" height="1600" alt="Ls_PackedGeoRayCull" src="https://github.com/user-attachments/assets/434751f3-c2ab-4e95-8b93-878eff904c09" />
 
