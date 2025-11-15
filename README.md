@@ -151,7 +151,7 @@ Demo of a strange viewport bug. The capy and camera are in sync when hitting pla
 https://github.com/user-attachments/assets/18be003d-dcb7-4d79-834d-a9c52088a267
 
 #### [Ls_ViewportText_v01.hip](./Ls_ViewportText_v01.hip)
-Viewport text using tag visualizers in dummy geo objects parented under the camera. These can be moved around easily rather than being stuck in the corner.
+Demo using tag visualizers in dummy geo objects parented under the camera. This allows color control, and is easy to move around rather than being stuck in the corner.
 
 <img width="1917" height="916" alt="Ls_ViewportText_v01" src="https://github.com/user-attachments/assets/95f28272-254b-4536-8f5f-df1d04f544d9" />
 
