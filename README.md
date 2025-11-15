@@ -188,6 +188,11 @@ ndcv *= set(res.x, res.y, 0.0);
 \$mv = ndcv;
 ```
 
+#### [Ls_PackedGeoRayCull.hipnc](./Ls_PackedGeoRayCull.hipnc)
+Culls packed prims based on the Ray SOP. The sphere rays out in every direction, records hitprim from the packed geo, then `findattribvalcount()` checks if each piece of packed geo had a hit recorded:
+
+<img width="2560" height="1600" alt="Ls_PackedGeoRayCull" src="https://github.com/user-attachments/assets/434751f3-c2ab-4e95-8b93-878eff904c09" />
+
 #### [Ls_PopTrails_v01.hipnc](./Ls_PopTrails_v01.hipnc)
 Particle trail using a Trail SOP followed by an Add SOP set to connect points with a matching ID attribute.
 
