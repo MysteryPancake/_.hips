@@ -80,6 +80,11 @@ Extracts the Q-criterion isosurface beloved by aerospace CFD people from a smoke
 
 https://github.com/user-attachments/assets/445e0c6c-a4eb-4907-9ef0-1cb60870c3ee
 
+#### [Ls_ViewportCameraGeoSync.hipnc](./Ls_ViewportCameraGeoSync.hipnc)
+Demo of a strange viewport bug. The capy and camera are in sync when hitting play, but when scrubbing the timeline he's all over the shop:
+
+https://github.com/user-attachments/assets/18be003d-dcb7-4d79-834d-a9c52088a267
+
 Everything else in here I have zero memory of don't @ me 🤍 lewis.saunders@gmail.com
 
 (Older stuff might be on https://lewisinthelandofmachines.tumblr.com)
