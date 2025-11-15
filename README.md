@@ -150,7 +150,7 @@ Demo of a strange viewport bug. The capy and camera are in sync when hitting pla
 
 https://github.com/user-attachments/assets/18be003d-dcb7-4d79-834d-a9c52088a267
 
-#### [Ls_VolumeMotionVectors_v01.hipnc](./Ls_VolumeMotionVectors_v01.hipnc)
+#### [Ls_VolumeMotionVectors_v01.hipnc](./Ls_VolumeMotionVectors_v01.hipnc) / [Ls_VolumeMotionVectorsNodes_v01.hipnc](./Ls_VolumeMotionVectorsNodes_v01.hipnc)
 Inline code snippet to output 2D motion vectors in absolute pixels, as seen in [Ls_MotionVectors](#ls_motionvectors_v01hip). Motion vectors for volumes are tricky because of transparency. A wispy bit of smoke moving fast will get motion vectors near 0 because it's not opaque enough for its true velocity colour to show. One solution is increasing the density so you only see the vel at the front of the volume:
 
 <img width="1919" height="916" alt="Ls_VolumeMotionVectors_v01" src="https://github.com/user-attachments/assets/f93329e8-ca8f-47a6-a1fb-d29a291784e9" />
