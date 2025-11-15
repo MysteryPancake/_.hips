@@ -60,6 +60,11 @@ Extrapolating a curve using taylor polynomials. You can enable gradient3 and gra
 
 https://github.com/user-attachments/assets/d58d709d-7c4b-41ca-9edc-0990bd77d081
 
+#### [Ls_DopsVolumeStreak_v01.hipnc](./Ls_DopsVolumeStreak_v01.hipnc)
+Demo of a velocity bug in DOPs. When velocity sampling is set to streak, velocity at the border is reflected back into the system. Changing velocity sampling to corner keeps it stable, as does turning closed boundaries on (but changes the look a lot). Bizarrely it also stays stable if you enable OpenCL on Gas Enforce Boundary DOP:
+
+https://github.com/user-attachments/assets/fa8a503c-6572-434b-8d7a-85df603bcb7a
+
 #### [Ls_KarmaMandelbulb](./Ls_KarmaMandelbulb)
 The HDK comes with a Karma procedural that renders a mandelbulb in VEX without having to create any geometry (sadly it crashes as soon as you change any of the parameters in 20.5.361 unless you switch the renderer from Karma CPU to something else and then back again):
 
