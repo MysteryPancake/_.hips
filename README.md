@@ -26,7 +26,7 @@ Using OpenCL global atomic add tricks to render a buffer of point positions as s
 https://github.com/user-attachments/assets/30609454-98d0-46a3-883d-81831ba6363e
 
 #### [Ls_Cop3Cooking.hipnc](./Ls_Cop3Cooking.hipnc)
-Demo of slow apex graph cooking behaviour in COPs, maybe due to preview image generation. How can 3 blurs which must be hundreds of instructions run faster than what should be 3 mults and 3 adds plus some copying? Using invoke to run the same block is faster, even with enable compiling turned off:
+Slow apex graph cooking behaviour in COPs, possibly due to preview image generation. How can 3 blurs which must be hundreds of instructions run faster than what should be 3 mults and 3 adds plus some copying? Using invoke to run the same block is faster, even with enable compiling turned off:
 
 <img width="1738" height="834" alt="Ls_Cop3Cooking" src="https://github.com/user-attachments/assets/471d372e-1840-4941-a638-1f5b0ffaff25" />
 
@@ -36,7 +36,7 @@ There's no way to apply a 3D LUT in new-style COPs apart from the OCIO node (whi
 <img width="1920" height="1080" alt="Ls_Cop3LUTfromImage_v01" src="https://github.com/user-attachments/assets/5df6ecc2-5160-4cb2-946d-09308966cc55" />
 
 #### [Ls_Cop3MatrixBinding_v01.hipnc](./Ls_Cop3MatrixBinding_v01.hipnc)
-Demo of binding a 3@matrix attribute into OpenCL using float9. Admittedly confusing that you can't access the mat3 as an array of 9 floats since it's actually an array of fpreal3s (each of which is 4 floats wide even more confusingly):
+Binding a 3@matrix attribute into OpenCL using float9. Admittedly confusing that you can't access the mat3 as an array of 9 floats since it's actually an array of fpreal3s (each of which is 4 floats wide even more confusingly):
 
 <img width="1490" height="640" alt="copmatrix" src="https://github.com/user-attachments/assets/131eeec3-e7bf-4490-ac45-73cc366732a4" />
 
@@ -61,7 +61,7 @@ Extrapolating a curve using taylor polynomials. You can enable gradient3 and gra
 https://github.com/user-attachments/assets/d58d709d-7c4b-41ca-9edc-0990bd77d081
 
 #### [Ls_DopsVolumeStreak_v01.hipnc](./Ls_DopsVolumeStreak_v01.hipnc)
-Demo of a velocity bug in DOPs. When velocity sampling is set to streak, velocity at the border is reflected back into the system. Changing velocity sampling to corner keeps it stable, as does turning closed boundaries on (but changes the look a lot). Bizarrely it also stays stable if you enable OpenCL on Gas Enforce Boundary DOP:
+Velocity extrapolation bug in DOPs. When velocity sampling is set to streak, velocity at the border is reflected back into the system. Changing velocity sampling to corner keeps it stable, as does turning closed boundaries on (but changes the look a lot). Bizarrely it also stays stable if you enable OpenCL on Gas Enforce Boundary DOP:
 
 https://github.com/user-attachments/assets/fa8a503c-6572-434b-8d7a-85df603bcb7a
 
@@ -84,6 +84,11 @@ Probably the best we can do in 21.0 to render PNGs from Karma with an OCIO view 
 You can sorta render a sunset using a uniform volume on a sphere as big as the entire earth with a geo-referenced DEM terrain, letting the atmosphere both scatter and absorb the same colour so the sky gradient from the low-angle sun appears naturally:
 
 <img width="1985" height="857" alt="Ls_KarmaSunset_v01" src="https://github.com/user-attachments/assets/34b49392-95c7-40c3-aed7-08908b59b9fe" />
+
+#### [Ls_LOPsFrustrumClipMaybe_v01.hipnc](./Ls_LOPsFrustrumClipMaybe_v01.hipnc)
+Pruning primitives outside of an SDF VDB in LOPs. Sample your SOP VDB at the center of each prim in LOPs to check if it's outside:
+
+<img width="2672" height="1629" alt="Ls_LOPsFrustrumClipMaybe_v01" src="https://github.com/user-attachments/assets/51e6005d-0eb4-4277-b875-925b3015c006" />
 
 #### [Ls_MatrixFromChart_v01b.hipnc](./Ls_MatrixFromChart_v01b.hipnc)
 Extracts a best-fit 3x3 matrix from two Macbeth chart images similarly to mmColorTarget using everyone's favourite, the Linear Solver SOP:
@@ -151,12 +156,12 @@ Extracts the Q-criterion isosurface beloved by aerospace CFD people from a smoke
 https://github.com/user-attachments/assets/445e0c6c-a4eb-4907-9ef0-1cb60870c3ee
 
 #### [Ls_ViewportCameraGeoSync.hipnc](./Ls_ViewportCameraGeoSync.hipnc)
-Demo of a strange viewport bug. The capy and camera are in sync when hitting play, but when scrubbing the timeline he's all over the shop:
+Strange viewport bug with camera syncing. The capy and camera are in sync when hitting play, but when scrubbing the timeline he's all over the shop:
 
 https://github.com/user-attachments/assets/18be003d-dcb7-4d79-834d-a9c52088a267
 
 #### [Ls_ViewportText_v01.hip](./Ls_ViewportText_v01.hip)
-Demo using tag visualizers in dummy geo objects parented under the camera. This allows color control, and is easy to move around rather than being stuck in the corner.
+Using tag visualizers in dummy geo objects parented under the camera. This allows color control, and is easy to move around rather than being stuck in the corner.
 
 <img width="1917" height="916" alt="Ls_ViewportText_v01" src="https://github.com/user-attachments/assets/95f28272-254b-4536-8f5f-df1d04f544d9" />
 
