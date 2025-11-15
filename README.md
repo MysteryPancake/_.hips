@@ -25,6 +25,11 @@ Using OpenCL global atomic add tricks to render a buffer of point positions as s
 
 https://github.com/user-attachments/assets/30609454-98d0-46a3-883d-81831ba6363e
 
+#### [Ls_Cop3Cooking.hipnc](./Ls_Cop3Cooking.hipnc)
+Demo of slow apex graph cooking behaviour in COPs, maybe due to preview image generation. How can 3 blurs which must be hundreds of instructions run faster than what should be 3 mults and 3 adds plus some copying? Using invoke to run the same block is faster, even with enable compiling turned off:
+
+<img width="1738" height="834" alt="copcooking" src="https://github.com/user-attachments/assets/471d372e-1840-4941-a638-1f5b0ffaff25" />
+
 #### [Ls_Cop3LUTfromImage_v02](./Ls_Cop3LUTfromImage_v02)
 There's no way to apply a 3D LUT in new-style COPs apart from the OCIO node (which is CPU-only) but if you encode one in an image you can do a reasonable job with OpenCL:
 
