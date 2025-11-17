@@ -1,5 +1,5 @@
 #### [Ls_AF1TransonicRegime_v01.hipnc](./Ls_AF1TransonicRegime_v01.hipnc)
-Aligning arrows to follow a pyro sim... ignore the shoe (loud video):
+Aligning arrows to follow a pyro sim... don't mind that it's on a shoe (loud video):
 
 https://github.com/user-attachments/assets/eee24241-f285-408a-b6ff-8bee8f861d8c
 
@@ -272,7 +272,7 @@ Using tag visualizers in dummy geo objects parented under the camera. This allow
 
 <img width="1917" height="916" alt="Ls_ViewportText_v01" src="https://github.com/user-attachments/assets/95f28272-254b-4536-8f5f-df1d04f544d9" />
 
-
+ 
 
 Everything else in here I have zero memory of don't @ me 🤍 lewis.saunders@gmail.com
 
