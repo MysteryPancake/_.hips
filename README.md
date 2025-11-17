@@ -1,4 +1,12 @@
-# Houdini Hips
+#### [Ls_AF1TransonicRegime_v01.hipnc](./Ls_AF1TransonicRegime_v01.hipnc)
+Aligning arrows to follow a pyro sim... ignore the shoe (loud video warning):
+
+https://github.com/user-attachments/assets/eee24241-f285-408a-b6ff-8bee8f861d8c
+
+#### [Ls_AncientScrolls_v01.hiplc](./Ls_AncientScrolls_v01.hiplc)
+Unwrapping layers of papyrus from CT scans of the Herculaneum scrolls - could see the crosshatching of the reeds woven together but no ink or writing (loud video warning):
+
+https://github.com/user-attachments/assets/db59fdab-e19f-42d4-babc-3f1de05bb510
 
 #### [Ls_ApexLol_v01.hipnc](./Ls_ApexLol_v01.hipnc)
 APEX node graphs are stored as geometry so you can do silly things like move the nodes themselves around with attribnoise:
@@ -117,9 +125,19 @@ Extrapolating a curve using taylor polynomials. You can enable gradient3 and gra
 https://github.com/user-attachments/assets/d58d709d-7c4b-41ca-9edc-0990bd77d081
 
 #### [Ls_DopsVolumeStreak_v01.hipnc](./Ls_DopsVolumeStreak_v01.hipnc)
-Velocity extrapolation bug in DOPs. When velocity sampling is set to streak, velocity at the border is reflected back into the system. Changing velocity sampling to corner keeps it stable, as does turning closed boundaries on (but changes the look a lot). Bizarrely it also stays stable if you enable OpenCL on Gas Enforce Boundary DOP:
+Velocity extrapolation weirdness in DOPs. When velocity sampling is set to streak, velocity at the border is reflected back into the system. Changing velocity sampling to corner keeps it stable, as does turning closed boundaries on (but changes the look a lot). Bizarrely it also stays stable if you enable OpenCL on Gas Enforce Boundary DOP:
 
 https://github.com/user-attachments/assets/fa8a503c-6572-434b-8d7a-85df603bcb7a
+
+#### [Ls_GeoTangentSpaceTransfer_v02.hipnc](./Ls_GeoTangentSpaceTransfer_v02.hipnc)
+Super simply easily memorable way to transfer a sculpt or other shape change from a rest pose to a different pose by storing the difference in tangent space, simply using dot products with N/tangentu/tangentv and no need to remember matrix ordering (may not match the MikkT standard though):
+
+<img width="2560" height="1467" alt="Ls_GeoTangentSpaceTransfer_v02" src="https://github.com/user-attachments/assets/f5c89c54-3096-4ed1-89c7-4318537de982" />
+
+#### [Ls_GeoFreqSep_v02.hipnc](./Ls_GeoFreqSep_v02.hipnc)
+Splits a mesh into low and high frequency parts, then uses the tangent space transfer trick above to offset the high frequencies in UV space:
+
+https://github.com/user-attachments/assets/46b41c99-ad94-442c-af1f-75a94465d497
 
 #### [Ls_GlancingReflectionBug_v01.hipnc](./Ls_GlancingReflectionBug_v01.hipnc)
 Demo of a strange bent reflection bug. It can be fixed by reversing the normals or vertex order, or by rotating the grid:
@@ -164,10 +182,20 @@ Interpolating between two matrix attributes using `slerp()`:
 
 <img width="1919" height="919" alt="Ls_MatrixInterp_v01" src="https://github.com/user-attachments/assets/e44d1f4b-f240-4d20-8ebe-d88a2ff799f8" />
 
+#### [Ls_OldBubbleSim_v07.hiplc](./Ls_OldBubbleSim_v07.hiplc)
+Soap bubble simulated as 2D smoke with "single rest" advection and a noise texture mapped on in COPs, rendered with Arnold's thin film shader... the only real trick is to resize the rest field up 3x before remapping the texture onto it, which looks much smoother and more detailed, as if the whole thing was done with 3x3 antialiasing: 
+
+https://github.com/user-attachments/assets/467113a6-0022-4068-886b-ddd9e7b79387
+
 #### [Ls_PackedGeoRayCull.hipnc](./Ls_PackedGeoRayCull.hipnc)
 Culls packed prims using visibility rays - it may seem surprising that the Ray SOP can trace against packed prims since most SOPs only treat them as a single point but thinking of them as render time instances hints that it should work... the rays record hitprim from the packed geo, then `findattribvalcount()` checks if each piece of packed geo had a hit recorded:
 
 <img width="2560" height="1600" alt="Ls_PackedGeoRayCull" src="https://github.com/user-attachments/assets/434751f3-c2ab-4e95-8b93-878eff904c09" />
+
+### [Ls_PyroType_v03.hiplc](./Ls_PyroType_v03.hiplc)
+Silly experiment advecting the control points of beziers with a pyro sim:
+
+https://github.com/user-attachments/assets/f7bc62d7-0bdf-49cd-b7ab-6521e6f4323c
 
 #### [Ls_Ramprefine_v01.hiplc](./Ls_Ramprefine_v01.hiplc)
 Simplifying colour ramps that have way too many points by treating them as 3D paths in RGB space:
@@ -228,6 +256,11 @@ Creates a smooth terrain from contour lines using thin plate spline interpolatio
 Extracts the Q-criterion isosurface beloved by aerospace CFD people from a smoke or pyro sim (it's the difference between the squared frobenius norms of the symmetric and anti-symmetric parts of the velocity gradient tensor, see https://www.m4-engineering.com/q-criterion-for-vortex-visualization):
 
 https://github.com/user-attachments/assets/445e0c6c-a4eb-4907-9ef0-1cb60870c3ee
+
+#### [Ls_TwitterArea_v04.hipnc](./Ls_TwitterArea_v04.hipnc)
+Builds a geometry network with friend/following relations from a social media graph and simulates it to see which parts cluster naturally together (big mess, for more see https://github.com/lcrs/twarea):
+
+https://github.com/user-attachments/assets/28b10797-facb-440a-a38a-d5f20abe4c73
 
 #### [Ls_ViewportCameraGeoSync.hipnc](./Ls_ViewportCameraGeoSync.hipnc)
 Strange viewport bug with camera syncing. The capy and camera are in sync when hitting play, but when scrubbing the timeline he's all over the shop:
